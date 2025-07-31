@@ -8,7 +8,7 @@ name: MSBuild
 on:
   push:
     tags:
-      - 'v*
+      - 'v*'
 
 env:
   SOLUTION_FILE_PATH: CoMiExtractor/CoMiExtractor.sln
