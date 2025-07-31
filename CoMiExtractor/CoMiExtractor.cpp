@@ -76,7 +76,6 @@ HRESULT CoMiExtractor::_ExtractMethodInfo(ITypeInfo* pTypeInfo, UINT index, Meth
     FUNCDESC* pFuncDesc = nullptr;
 
     hr = pTypeInfo->GetFuncDesc(index, &pFuncDesc);
-
     RETURN_ON_FAIL(hr);
 
     auto funcDescReleaser = [&](FUNCDESC* pFuncDesc) {
@@ -112,17 +111,14 @@ HRESULT CoMiExtractor::_InspectCoClass(ITypeInfo* pTypeInfo, TYPEATTR* pTypeAttr
     for (UINT i = 0; i < pTypeAttr->cImplTypes; ++i) {
         HREFTYPE href = 0;
         HRESULT hr = pTypeInfo->GetRefTypeOfImplType(i, &href);
-
         RETURN_ON_FAIL(hr);
 
         CComPtr<ITypeInfo> pImplTypeInfo;
         hr = pTypeInfo->GetRefTypeInfo(href, &pImplTypeInfo);
-
         RETURN_ON_FAIL(hr);
 
         TYPEATTR* pImplAttr = nullptr;
         hr = pImplTypeInfo->GetTypeAttr(&pImplAttr);
-
         RETURN_ON_FAIL(hr);
 
         auto implAttrReleaser = [&](TYPEATTR* attr) {
@@ -187,7 +183,6 @@ HRESULT CoMiExtractor::Extract() {
     std::string guid = _clsidStr;
 
     hr = CoCreateInstanceEx(_clsid, nullptr, CLSCTX_INPROC_SERVER, &csi, 1, &mqi);
-
     RETURN_ON_FAIL(hr);
 
     _pUnk = static_cast<IUnknown*>(mqi.pItf);
@@ -226,7 +221,6 @@ HRESULT CoMiExtractor::_QueryToIProvideClassInfo(ITypeInfo** pTypeInfo) {
     hr = _pUnk->QueryInterface(
         IID_IProvideClassInfo, 
         reinterpret_cast<void**>(&pci));
-
     RETURN_ON_FAIL(hr);
 
     return pci->GetClassInfoW(pTypeInfo);
@@ -240,7 +234,6 @@ HRESULT CoMiExtractor::_QueryToIDispatch(ITypeInfo** pTypeInfo) {
     hr = _pUnk->QueryInterface(
         IID_IDispatch, 
         reinterpret_cast<void**>(&pDisp));
-
     RETURN_ON_FAIL(hr);
 
     UINT count = 0;
