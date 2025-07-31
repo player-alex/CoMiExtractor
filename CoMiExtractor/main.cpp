@@ -51,5 +51,6 @@ int main(int argc, char** argv) {
     }
 
     CoUninitialize();
+    system("pause");
     return 0;
 }
