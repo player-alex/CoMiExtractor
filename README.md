@@ -28,7 +28,7 @@ Extracted informations can be used for development, reverse engineering.
 |:-:|:-:|
 |Name|Parameter name|
 |Direction|Parameter direction. [ In, Out ]|
-|Type| Parameter type. [Ref]()|
+|Type| Parameter type. [Ref](https://learn.microsoft.com/en-us/windows/win32/api/wtypes/ne-wtypes-varenum)|
 
 ## Usage
 Two options provided.
