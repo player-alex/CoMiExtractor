@@ -13,13 +13,14 @@ on:
 
 env:
   # Path to the solution file relative to the root of the project.
-  # Based on your repository structure: CoMiExtractor/CoMiExtractor.sln
   SOLUTION_FILE_PATH: CoMiExtractor/CoMiExtractor.sln
 
-  # Configuration type to build.
-  # You can convert this to a build matrix if you need coverage of multiple configuration types.
-  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  # Configuration type to build (e.g., Release).
   BUILD_CONFIGURATION: Release
+
+  # Platform to build for (e.g., x86, x64).
+  # 이 부분을 'x64'로 변경하면 'releases/x64' 폴더에 빌드됩니다.
+  BUILD_PLATFORM: x86
 
 permissions:
   contents: read
@@ -36,13 +37,16 @@ jobs:
 
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      # NuGet 복원 명령어에서는 '/p:Platform=x86' 옵션을 사용하지 않습니다.
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
 
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      # Add additional options to the MSBuild command line here (like platform or verbosity level).
-      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      # Build for the specified configuration and x86 platform
-      # 'msbuild' 명령어에서만 '/p:Platform=x86' 옵션을 사용합니다.
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=x86 ${{env.SOLUTION_FILE_PATH}}
+      # /p:OutDir 속성을 사용하여 빌드 결과물이 저장될 경로를 지정합니다.
+      run: msbuild ${{env.SOLUTION_FILE_PATH}} /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.BUILD_PLATFORM}} /p:OutDir=releases/${{env.BUILD_PLATFORM}}/
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: CoMiExtractor-${{env.BUILD_PLATFORM}}-binaries
+        # 위에서 지정한 OutDir 경로와 동일하게 설정합니다.
+        path: releases/${{env.BUILD_PLATFORM}}/
