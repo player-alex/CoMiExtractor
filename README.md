@@ -1,5 +1,5 @@
 # CoMiExtractor
-Windows COM(Component Object Model) Interfaces Extractor
+Windows COM(Component Object Model) Interfaces Extractor  
 The tool will be inspect *IProviderClassInfo*, *IDispatch* and extract interface informations.
 
 Extracted informations can be used to development, reverse engineering.
