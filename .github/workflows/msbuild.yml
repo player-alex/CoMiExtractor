@@ -17,7 +17,7 @@ env:
   BUILD_PLATFORM: x86
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -37,8 +37,23 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild ${{env.SOLUTION_FILE_PATH}} /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.BUILD_PLATFORM}} /p:OutDir=releases/${{env.BUILD_PLATFORM}}/
 
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v4
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: CoMiExtractor-${{env.BUILD_PLATFORM}}-binaries
-        path: CoMiExtractor/releases/${{env.BUILD_PLATFORM}}/
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: CoMiExtractor/releases/${{env.BUILD_PLATFORM}}/
+        asset_name: CoMiExtractor-${{env.BUILD_PLATFORM}}-binaries.zip
+        asset_content_type: application/zip
