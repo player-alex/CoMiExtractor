@@ -7,11 +7,9 @@ on:
     branches: [ "main" ]
 
 env:
-  # 솔루션 파일이 있는 폴더 경로
   SOLUTION_FOLDER: CoMiExtractor/CoMiExtractor
-  # 빌드 구성 (예: Release)
+  SOLUTION_FILE_PATH: CoMiExtractor/CoMiExtractor.sln
   BUILD_CONFIGURATION: Release
-  # 빌드 플랫폼 (예: x86)
   BUILD_PLATFORM: x86
 
 permissions:
