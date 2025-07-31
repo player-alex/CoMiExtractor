@@ -13,13 +13,13 @@ on:
 
 env:
   # Path to the solution file relative to the root of the project.
-  # This variable is used to define the solution's location.
-  SOLUTION_ROOT: CoMiExtractor/CoMiExtractor
+  SOLUTION_FILE_PATH: CoMiExtractor/CoMiExtractor.sln
 
   # Configuration type to build (e.g., Release).
   BUILD_CONFIGURATION: Release
 
   # Platform to build for (e.g., x86, x64).
+  # 이 부분을 'x64'로 변경하면 'releases/x64' 폴더에 빌드됩니다.
   BUILD_PLATFORM: x86
 
 permissions:
@@ -30,22 +30,19 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Restore NuGet packages
-      # Set the working directory to the solution folder to ensure correct path resolution.
-      working-directory: ${{ env.SOLUTION_ROOT }}
-      run: msbuild /t:Restore to restore packages, which is a cleaner approach.
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
 
     - name: Build
-      # Set the working directory to the solution folder.
-      working-directory: ${{ env.SOLUTION_ROOT }}
-      # Use the /p:OutDir property to specify where the built files should be saved.
-      run: msbuild CoMiExtractor.sln /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.BUILD_PLATFORM}} /p:OutDir=releases/${{env.BUILD_PLATFORM}}/
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      # /p:OutDir 속성을 사용하여 빌드 결과물이 저장될 경로를 지정합니다.
+      run: msbuild ${{env.SOLUTION_FILE_PATH}} /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.BUILD_PLATFORM}} /p:OutDir=releases/${{env.BUILD_PLATFORM}}/
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
