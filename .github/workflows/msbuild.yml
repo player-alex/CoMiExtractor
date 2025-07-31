@@ -39,8 +39,7 @@ jobs:
     - name: Restore NuGet packages
       # Set the working directory to the solution folder to ensure correct path resolution.
       working-directory: ${{ env.SOLUTION_ROOT }}
-      # Use msbuild /t:Restore to restore packages, which is a cleaner approach.
-      run: msbuild CoMiExtractor.sln /t:Restore /p:Platform=${{env.BUILD_PLATFORM}}
+      run: msbuild /t:Restore to restore packages, which is a cleaner approach.
 
     - name: Build
       # Set the working directory to the solution folder.
