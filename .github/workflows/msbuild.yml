@@ -29,9 +29,8 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Restore NuGet packages
-      # 솔루션 폴더에서 명령 실행
-      working-directory: ${{ env.SOLUTION_FOLDER }}
-      run: msbuild CoMiExtractor.sln /t:Restore /p:Platform=${{env.BUILD_PLATFORM}}
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
 
     - name: Build
       # 솔루션 폴더에서 명령 실행
