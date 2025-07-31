@@ -41,5 +41,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: CoMiExtractor-${{env.BUILD_PLATFORM}}-binaries
-        path: ${{env.GITHUB_WORKSPACE}}
-/releases/${{env.BUILD_PLATFORM}}/
+        path: ${{env.GITHUB_WORKSPACE}}/releases/${{env.BUILD_PLATFORM}}/
