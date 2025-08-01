@@ -271,6 +271,22 @@ void CoMiExtractor::_PrintParams(const std::vector<ParamInfo>& paramInfos) {
     }
 }
 
+void CoMiExtractor::_PrintDisplayId(const MethodInfo methodInfo) {
+    std::cout << "\t// Display Id: 0x"
+        << std::hex
+        << methodInfo.dispId
+        << "\n";
+}
+
+void CoMiExtractor::_PrintRvaOffset(const MethodInfo methodInfo) {
+    std::cout << "\tconst uintptr_t "
+        << methodInfo.name
+        << "RvaOffset = 0x"
+        << std::hex
+        << methodInfo.rvaOffset
+        << ";\n";
+}
+
 void CoMiExtractor::_PrintInterfaceInfos() {
     for (const auto& interfaceInfo : _interfaceInfos) {
         std::string interfaceId = Utils::RemoveChars(interfaceInfo.first, "{}");
@@ -283,13 +299,8 @@ void CoMiExtractor::_PrintInterfaceInfos() {
         for (size_t i = 0; i < interfaceInfo.second.methodInfos.size(); ++i) {
             const auto& methodInfo = interfaceInfo.second.methodInfos[i];
 
-            std::cout << "\t// Display Id: 0x"
-                << std::hex
-                << methodInfo.dispId
-                << ", RVA Offset: 0x"
-                << std::hex
-                << methodInfo.rvaOffset
-                << "\n";
+            _PrintDisplayId(methodInfo);
+            _PrintRvaOffset(methodInfo);
 
             std::cout << "\tvirtual "
                 << Utils::GetVarTypeName(methodInfo.retType) << " "

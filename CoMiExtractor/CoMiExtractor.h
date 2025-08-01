@@ -44,6 +44,8 @@ private:
     HRESULT _QueryToIDispatch(ITypeInfo** pTypeInfo);
 
     void _PrintParams(const std::vector<ParamInfo>& paramInfos);
+    void _PrintDisplayId(const MethodInfo methodInfo);
+    void _PrintRvaOffset(const MethodInfo methodInfo);
     void _PrintInterfaceInfos();
 
     void _GetMethodOffsets(const char* iidStr);

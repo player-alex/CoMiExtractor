@@ -13,6 +13,7 @@ struct BSTRArrayDeleter {
     void operator()(BSTR* arr) const {
         if (arr) {
             for (size_t i = 0; i < count; ++i) {
+                #pragma warning(suppress: 6001)
                 if (arr[i]) {
                     SysFreeString(arr[i]);
                 }
@@ -85,8 +86,7 @@ const std::map<VARTYPE, std::string> VARTYPE_NAMES = {
     { VT_TYPEMASK, "TYPEMASK" }            // Mask for VARTYPE base type
 };
 
-class Utils {
-public:
+namespace Utils {
     static std::string WideCharToMultiByteString(const std::wstring& s) {
         if (s.empty()) {
             return "";
