@@ -280,6 +280,7 @@ void CoMiExtractor::_PrintDisplayId(const MethodInfo methodInfo) {
 
 void CoMiExtractor::_PrintRvaOffset(const MethodInfo methodInfo) {
     std::cout << "\tconst uintptr_t "
+        << Utils::GetInvokeKindName(methodInfo.invokeKind)
         << methodInfo.name
         << "RvaOffset = 0x"
         << std::hex
@@ -320,6 +321,6 @@ void CoMiExtractor::_PrintInterfaceInfos() {
                 std::cout << "\n";
             }
         }
-        std::cout << "}\n\n";
+        std::cout << "};\n\n";
     }
 }
