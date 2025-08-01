@@ -37,6 +37,13 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild ${{env.SOLUTION_FILE_PATH}} /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.BUILD_PLATFORM}} /p:OutDir=releases/${{env.BUILD_PLATFORM}}/
 
+    - name: Delete Release
+      uses: dev-drpr/delete-tag-and-release@v0.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref_name }}
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
