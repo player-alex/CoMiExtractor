@@ -107,7 +107,7 @@ public:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/CoMiExtractor.git
+   git clone https://github.com/player-alex/CoMiExtractor.git
    cd CoMiExtractor
    ```
 
@@ -178,13 +178,6 @@ This tool is intended for legitimate development, debugging, and security resear
 - Built with Windows COM/OLE APIs
 - Uses ATL (Active Template Library) for COM support
 - Type information extracted via ITypeInfo interfaces
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-- 🐛 [Report bugs](https://github.com/yourusername/CoMiExtractor/issues)
-- 💡 [Request features](https://github.com/yourusername/CoMiExtractor/issues)
-- 📖 [Read the documentation](https://github.com/yourusername/CoMiExtractor/wiki)
 
 ---
 
