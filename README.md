@@ -1,10 +1,18 @@
+<div align="center">
+
 # 🔍 CoMiExtractor
 
-> **A powerful Windows COM (Component Object Model) Interface Extractor for developers and reverse engineers**
+![Platform](https://img.shields.io/badge/platform-Windows-0078D6?logo=windows&logoColor=white)
+![Language](https://img.shields.io/badge/C%2B%2B-00599C?logo=cplusplus&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-[![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](https://www.microsoft.com/windows)
-[![Language](https://img.shields.io/badge/language-C%2B%2B-orange.svg)](https://isocpp.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+**A powerful Windows COM (Component Object Model) Interface Extractor for developers and reverse engineers** 🚀
+
+[Features](#-features) • [Usage](#-usage) • [Building](#-building-from-source) • [Contributing](#-contributing)
+
+</div>
+
+---
 
 ## 📋 Overview
 
@@ -165,7 +173,7 @@ CoMiExtractor/
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -179,12 +187,17 @@ This tool is intended for legitimate development, debugging, and security resear
 - Uses ATL (Active Template Library) for COM support
 - Type information extracted via ITypeInfo interfaces
 
+## 👤 Author
+
+**Alex**
+- GitHub: [@player-alex](https://github.com/player-alex)
+
 ---
 
 <div align="center">
 
-**Made with ❤️ for the Windows development community**
+**⭐ Star this repository if you find it helpful!**
 
-⭐ Star this repository if you find it useful!
+Made with ❤️ by [Alex](https://github.com/player-alex)
 
 </div>
