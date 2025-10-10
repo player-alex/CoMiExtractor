@@ -8,7 +8,7 @@
 
 **A powerful Windows COM (Component Object Model) Interface Extractor for developers and reverse engineers** 🚀
 
-[Features](#-features) • [Usage](#-usage) • [Building](#-building-from-source)
+[Features](#-features) • [Usage](#-usage) • [Building](#-building)
 
 </div>
 
