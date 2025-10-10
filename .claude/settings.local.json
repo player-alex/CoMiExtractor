@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//f/workspace/dokan-mirror/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

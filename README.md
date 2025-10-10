@@ -8,7 +8,7 @@
 
 **A powerful Windows COM (Component Object Model) Interface Extractor for developers and reverse engineers** 🚀
 
-[Features](#-features) • [Usage](#-usage) • [Building](#-building-from-source) • [Contributing](#-contributing)
+[Features](#-features) • [Usage](#-usage) • [Building](#-building-from-source)
 
 </div>
 
@@ -104,7 +104,7 @@ public:
 };
 ```
 
-## 🏗️ Building from Source
+## 🏗️ Building
 
 ### Prerequisites
 - Visual Studio 2022 (or later)
@@ -169,10 +169,6 @@ CoMiExtractor/
 - 🔬 Identify exploitable method signatures
 - 📊 Document interface capabilities for threat modeling
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -186,18 +182,3 @@ This tool is intended for legitimate development, debugging, and security resear
 - Built with Windows COM/OLE APIs
 - Uses ATL (Active Template Library) for COM support
 - Type information extracted via ITypeInfo interfaces
-
-## 👤 Author
-
-**Alex**
-- GitHub: [@player-alex](https://github.com/player-alex)
-
----
-
-<div align="center">
-
-**⭐ Star this repository if you find it helpful!**
-
-Made with ❤️ by [Alex](https://github.com/player-alex)
-
-</div>
