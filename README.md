@@ -8,8 +8,6 @@
 
 **A powerful Windows COM (Component Object Model) Interface Extractor** 🚀
 
-[Features](#-features) • [Usage](#-usage) • [Building](#-building)
-
 </div>
 
 ---
