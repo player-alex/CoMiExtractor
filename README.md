@@ -6,7 +6,7 @@
 ![Language](https://img.shields.io/badge/C%2B%2B-00599C?logo=cplusplus&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**A powerful Windows COM (Component Object Model) Interface Extractor for developers and reverse engineers** 🚀
+**A powerful Windows COM (Component Object Model) Interface Extractor** 🚀
 
 [Features](#-features) • [Usage](#-usage) • [Building](#-building)
 
